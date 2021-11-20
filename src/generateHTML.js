@@ -23,17 +23,7 @@ function generateHTML(data) {
       </header>
 
       <div class="card">
-      <div class="card-content">
-        <p class="title">
-          ${JSON.stringify(data[0].employeeName)}
-          ${JSON.stringify(data[0].role)}
-        </p>
-        <p class="subtitle">
-          ${JSON.stringify(data[0].id)}
-          ${JSON.stringify(data[0].email)}
-          ${JSON.stringify(data[0].extraInfo)}
-        </p>
-      </div>
+        ${renderTeam(data)}
     </div>
     
       <footer class="container text-center py-3">
@@ -44,11 +34,40 @@ function generateHTML(data) {
     `;
 }
 
-function renderExtraInfo(role) {
-    // if (role === 'manager') {
+function renderExtraInfo(element) {
+    console.log('rendering extra info', element);
+    if (element.getRole() === 'manager') {
+        return `<button>Office Number:${(element.officeNumber)}</button>`;
+    }
 
-    // }
+    if (element.getRole() === 'Engineer') {
+        return `<button>GitHub:${(element.github)}</button>`;
+    }
 
+    if (element.getRole() === 'Intern') {
+        return `<button>School Name:${(element.school)}</button>`;
+    }
+}
+
+function renderTeam(data) {
+    console.log('rendering team', data);
+    let output = '';
+    data.forEach(element => {
+        console.log('rendering employee', element);
+
+        output += `<div class="card-content">
+        <p class="title">
+          ${(element.name)}
+          ${(element.getRole())}
+        </p>
+        <ol class="subtitle">
+          <li>Employee ID: ${(element.id)}</li>
+          <li>Email Adrress: ${(element.email)}</li>
+          ${renderExtraInfo(element)}
+        </ol>
+      </div>`;
+    })
+    return output;
 }
 
 module.exports = generateHTML;
