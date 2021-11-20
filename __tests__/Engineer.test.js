@@ -4,8 +4,8 @@ describe('Engineer', () => {
     describe('getName', () => {
         test('this should return an Engineer name', () => {
             const str = 'Diane';
-            const result = new Engineer(str, '123', 'diane@', 'diane@github').getName()
-            expect(result).toBe(str);
+            const result = new Engineer(str, '123', 'diane@email', 'diane@github').getName()
+            expect(result).toEqual(str);
         })
     })
 
@@ -34,7 +34,7 @@ describe('Engineer', () => {
     });
 
     describe("gitHub", () => {
-        test("this should return the role of the Engineer", () => {
+        test("this should return the github account of the Engineer", () => {
             const str = 'diane@github';
             const result = new Engineer('Diane', '123', 'diane@email', str).getGithub();
             expect(result).toEqual(str);
