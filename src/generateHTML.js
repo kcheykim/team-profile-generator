@@ -1,6 +1,7 @@
 function generateHTML(data) {
 
     return `
+    ${JSON.stringify(data)}
     <!DOCTYPE html>
     <html lang="en">
     
@@ -13,7 +14,7 @@ function generateHTML(data) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <title>Music Matcher</title>
+    <title>Team Profile Generator</title>
     </head>
     
     <body>
@@ -24,19 +25,19 @@ function generateHTML(data) {
       <div class="card">
       <div class="card-content">
         <p class="title">
-          ${data.name}
-          ${data.role}
+          ${JSON.stringify(data[0].employeeName)}
+          ${JSON.stringify(data[0].role)}
         </p>
         <p class="subtitle">
-          ${data.id}
-          ${data.email}
-          ${renderExtraInfo(data.role)}
+          ${JSON.stringify(data[0].id)}
+          ${JSON.stringify(data[0].email)}
+          ${JSON.stringify(data[0].extraInfo)}
         </p>
       </div>
     </div>
     
       <footer class="container text-center py-3">
-        <h3 class="text-dark">&copy;2020 by ${data.name}</h3>
+        <h3 class="text-dark">&copy;2020 by ${data[0].employeeName}</h3>
       </footer>
     </body>
     </html>
