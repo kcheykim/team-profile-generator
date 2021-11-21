@@ -1,5 +1,4 @@
 function generateHTML(data) {
-
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -21,11 +20,11 @@ function generateHTML(data) {
         <h1 class="title has-text-centered">My Team</h1>
       </header>
 
-      <div class='tile is-parent is-justify-content-space-evenly'>
+      <div class="tile is-parent is-vertical is-12">
         ${renderTeam(data)}
       </div>
     
-      <footer class="container text-center py-3">
+      <footer class="container has-text-centered py-3">
         <h3 class="text-dark">&copy;2021 by ${data[0].name}</h3>
       </footer>
     </body>
@@ -34,7 +33,6 @@ function generateHTML(data) {
 }
 
 function renderExtraInfo(element) {
-    console.log('rendering extra info', element);
     if (element.getRole() === 'Manager') {
         return `<p class="subtitle-5">Office No.:${(element.officeNumber)}</p>`;
     }
@@ -48,13 +46,26 @@ function renderExtraInfo(element) {
     }
 }
 
+function renderIcon(element) {
+    if (element.getRole() === 'Manager') {
+        return `<span class="material-icons">free_breakfast</span>`;
+    }
+
+    if (element.getRole() === 'Engineer') {
+        return `<span class="material-icons-outlined">engineering</span>`;
+    }
+
+    if (element.getRole() === 'Intern') {
+        return `<span class="material-icons">school</span>`;
+    }
+}
+
 function renderTeam(data) {
-    console.log('rendering team', data);
     let output = '';
     data.forEach(element => {
-        output += `<div class="card is-child" style="width:300px;">
+        output += `<div class="card is-child is-12" id="card-size">
         <header class="card-header-tile title notification is-success">${(element.name)}
-        <div class="subtitle">${(element.getRole())}</p>
+        <div class="subtitle">${renderIcon(element)}${(element.getRole())}</>
         </header>
         <div class="card-content">
           <p class="subtitle-5">Employee ID: ${(element.id)}</p>

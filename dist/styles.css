@@ -1,5 +1,5 @@
-body {
-    background-color: black;
+html {
+    background-color: black!important;
 }
 
 .title {
@@ -11,9 +11,8 @@ body {
     color: lighty;
     text-align: center;
     height: 100px;
-    background-image: linear-gradient(red, yellow, green);
-    color: black;
-    !important;
+    background-image: linear-gradient(yellow, green);
+    color: black!important;
     padding-top: 20px;
     border-bottom: 10px solid black;
 }
@@ -26,12 +25,12 @@ body {
 
 footer {
     color: #1db954;
+    background-color: black;
 }
 
-#card-width {
+#card-size {
     height: 300px!important;
     width: 300px!important;
+    margin: 10px;
     color: black!important;
-    overflow-y: auto;
-    background-image: linear-gradient(to right, black, green, lightgreen);
 }
