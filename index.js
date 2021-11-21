@@ -122,7 +122,6 @@ function init() {
                 extraInfo
             };
             repeat(role, extraInfo);
-
         })
 }
 
