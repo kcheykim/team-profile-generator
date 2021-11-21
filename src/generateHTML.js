@@ -19,11 +19,9 @@ function generateHTML(data) {
       <header class="jumbotron">
         <h1 class="title has-text-centered">My Team</h1>
       </header>
-
         <div class="tile is-parent is-justify-content-space-evenly  is-flex-wrap-wrap is-flex-direction-row">
           ${renderTeam(data)}
         </div>
-    
       <footer class="container has-text-centered py-3">
         <h3 class="text-dark">&copy;2021 by ${data[0].name}</h3>
       </footer>
@@ -38,7 +36,7 @@ function renderExtraInfo(element) {
     }
 
     if (element.getRole() === 'Engineer') {
-        return `<button class="button is-normal">GitHub:${(element.github)}</button>`;
+        return `<a href="http://github.com/${(element.github)} class="button is-normal">GitHub</a>`;
     }
 
     if (element.getRole() === 'Intern') {
@@ -65,11 +63,11 @@ function renderTeam(data) {
     data.forEach(element => {
         output += `<div class="card is-child" id="card-size">
         <header class="card-header-tile title notification is-success">${(element.name)}
-        <div class="subtitle">${renderIcon(element)}${(element.getRole())}</>
+        <div class="subtitle">${renderIcon(element)} ${(element.getRole())}</div>
         </header>
         <div class="card-content">
           <p class="subtitle-5">Employee ID: ${(element.id)}</p>
-          <button class="button is-normal">Email Address: ${(element.email)}</button>
+          <a href="mailto:${(element.email)}" class="button is-normal">Email</a>
           <div></div>
           ${renderExtraInfo(element)}
         </div>
