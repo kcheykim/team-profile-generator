@@ -20,9 +20,9 @@ function generateHTML(data) {
         <h1 class="title has-text-centered">My Team</h1>
       </header>
 
-      <div class="tile is-parent is-vertical is-12">
-        ${renderTeam(data)}
-      </div>
+        <div class="tile is-parent is-justify-content-space-evenly  is-flex-wrap-wrap is-flex-direction-row">
+          ${renderTeam(data)}
+        </div>
     
       <footer class="container has-text-centered py-3">
         <h3 class="text-dark">&copy;2021 by ${data[0].name}</h3>
@@ -63,7 +63,7 @@ function renderIcon(element) {
 function renderTeam(data) {
     let output = '';
     data.forEach(element => {
-        output += `<div class="card is-child is-12" id="card-size">
+        output += `<div class="card is-child" id="card-size">
         <header class="card-header-tile title notification is-success">${(element.name)}
         <div class="subtitle">${renderIcon(element)}${(element.getRole())}</>
         </header>
