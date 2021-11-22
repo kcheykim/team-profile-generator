@@ -21,7 +21,7 @@ $git clone https://github.com/kcheykim/team-profile-generator.git<br />$rm packa
 ## Usage
 Here is how this application works:  
 ![team-profile-generator](./dist/team-profile-generator.gif?raw=true) <br />
-Here is the link to the video: 
+Here is the link to the video:https://watch.screencastify.com/v/Ajah6N7WQUl9liWDMHiO 
 
 ## Credits
 Here are the list of collaborators:  
