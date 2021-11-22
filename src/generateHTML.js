@@ -1,6 +1,5 @@
 function generateHTML(data) {
-    return `
-    <!DOCTYPE html>
+    return `<!DOCTYPE html>
     <html lang="en">
     
     <head>
@@ -11,6 +10,8 @@ function generateHTML(data) {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="./styles.css" />
     <title>Team Profile Generator</title>
     </head>
@@ -36,7 +37,7 @@ function renderExtraInfo(element) {
     }
 
     if (element.getRole() === 'Engineer') {
-        return `<a href="http://github.com/${(element.github)} class="button is-normal">GitHub</a>`;
+        return `<a href="http://github.com/${(element.github)} class="button is-normal">GitHub:${(element.github)}</a>`;
     }
 
     if (element.getRole() === 'Intern') {
@@ -45,17 +46,11 @@ function renderExtraInfo(element) {
 }
 
 function renderIcon(element) {
-    if (element.getRole() === 'Manager') {
-        return `<span class="material-icons">free_breakfast</span>`;
-    }
+    if (element.getRole() === 'Manager') { return `<span class="material-icons">free_breakfast</span>`; }
 
-    if (element.getRole() === 'Engineer') {
-        return `<span class="material-icons-outlined">engineering</span>`;
-    }
+    if (element.getRole() === 'Engineer') { return `<span class="material-icons">engineering</span>`; }
 
-    if (element.getRole() === 'Intern') {
-        return `<span class="material-icons">school</span>`;
-    }
+    if (element.getRole() === 'Intern') { return `<span class="material-icons">school</span>`; }
 }
 
 function renderTeam(data) {
@@ -63,12 +58,10 @@ function renderTeam(data) {
     data.forEach(element => {
         output += `<div class="card is-child" id="card-size">
         <header class="card-header-tile title notification is-success">${(element.name)}
-        <div class="subtitle">${renderIcon(element)} ${(element.getRole())}</div>
-        </header>
+        <div class="subtitle">${renderIcon(element)} ${(element.getRole())}</div></header>
         <div class="card-content">
-          <p class="subtitle-5">Employee ID: ${(element.id)}</p>
-          <a href="mailto:${(element.email)}" class="button is-normal">Email</a>
-          <div></div>
+          <p class="subtitle-3">Employee ID: ${(element.id)}</p>
+          <a href="mailto:${(element.email)}" class="button is-normal">Email: ${(element.email)}</a> <br />
           ${renderExtraInfo(element)}
         </div>
       </div>`;
