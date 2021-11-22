@@ -37,7 +37,7 @@ function renderExtraInfo(element) {
     }
 
     if (element.getRole() === 'Engineer') {
-        return `<a href="http://github.com/${(element.github)} class="button is-normal">GitHub:${(element.github)}</a>`;
+        return `<a href="http://github.com/${(element.github)}" class="button is-normal">GitHub:${(element.github)}</a>`;
     }
 
     if (element.getRole() === 'Intern') {
